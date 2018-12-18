@@ -34,13 +34,23 @@ export class HorairesService {
 				for(let i = 0 ; i < data.horaires.length; i++){
 
 					let myHoraires: Horaires = new Horaires();
-					
+
 					myHoraires.day 			= data.horaires[i].day;
-					myHoraires.m_opening	= data.horaires[i].m_opening;
-					myHoraires.m_closing	= data.horaires[i].m_closing;
-					myHoraires.a_opening	= data.horaires[i].a_opening;
-					myHoraires.a_closing	= data.horaires[i].a_closing;
-					myHoraires.state		= data.horaires[i].state;
+
+					myHoraires.hm_opening	= data.horaires[i].hm_opening;
+					myHoraires.mm_opening	= data.horaires[i].mm_opening;
+
+					myHoraires.hm_closing	= data.horaires[i].hm_closing;
+					myHoraires.mm_closing	= data.horaires[i].mm_closing;
+
+					myHoraires.ha_opening	= data.horaires[i].ha_opening;
+					myHoraires.ma_opening	= data.horaires[i].ma_opening;
+
+					myHoraires.ha_closing	= data.horaires[i].ha_closing;
+					myHoraires.ma_closing	= data.horaires[i].ma_closing;
+
+					myHoraires.m_state		= data.horaires[i].m_state;
+					myHoraires.a_state		= data.horaires[i].a_state;
 
 					horaireTab[i] = myHoraires;
 				}

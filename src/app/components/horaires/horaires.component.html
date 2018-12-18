@@ -12,11 +12,15 @@
 			  <th>MIDI F</th>
 		</tr>
 		<tr *ngFor="let current of horaiResponse">
-			  <td> {{ current.day }} </td>
-			  <td> {{ current.m_opening }}</td>
-			  <td> {{ current.m_closing }}</td>
-			  <td> {{ current.a_opening }}</td>
-			  <td> {{ current.a_closing }}</td>
+			<td> {{ current.day }} </td>
+
+			<td *ngIf="current.m_state"> {{ current.hm_opening }}h {{ current.mm_opening }}</td>
+
+			<td *ngIf="current.m_state"> {{ current.hm_closing }}h {{ current.mm_closing }}</td>
+
+			<td *ngIf="current.a_state"> {{ current.ha_opening }}h {{ current.ma_opening }}</td>
+
+			<td *ngIf="current.a_state"> {{ current.ha_closing }}h {{ current.ma_closing }}</td>
 		</tr>
 	</table>
 
@@ -30,11 +34,11 @@
 		<tr *ngFor="let current of horaiResponse" >
 			<td> {{ current.day }} </td>
 
-				<td *ngIf="current.state">  de {{ current.m_opening }}h à {{ current.m_closing }}h </td>
-				<td *ngIf="current.state"> et de {{ current.a_opening }}h à {{ current.a_closing }}h </td>
+				<td *ngIf="current.m_state">  de {{ current.hm_opening }}h {{ current.mm_opening }} à {{ current.hm_closing }}h {{ current.mm_closing }}</td>
+				<td *ngIf="current.a_state"> et de {{ current.ha_opening }}h {{ current.ma_opening }} à {{ current.ha_closing }}h {{ current.ma_closing }}</td>
 				
-				<td *ngIf="!current.state"> Fermé </td>
-				<td *ngIf="!current.state"> Fermé </td>
+				<td *ngIf="!current.m_state"> Fermé </td>
+				<td *ngIf="!current.a_state"> Fermé </td>
 			
 		</tr>
 	</table>
