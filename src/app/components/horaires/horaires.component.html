@@ -1,0 +1,54 @@
+<p>
+  horaires works!
+</p>
+
+<div>
+	<table>
+		<tr>
+			  <th>JOURS </th>
+			  <th>MATIN O</th> 
+			  <th>MATIN F</th>
+			  <th>MIDI O</th> 
+			  <th>MIDI F</th>
+		</tr>
+		<tr *ngFor="let current of horaiResponse">
+			  <td> {{ current.day }} </td>
+			  <td> {{ current.m_opening }}</td>
+			  <td> {{ current.m_closing }}</td>
+			  <td> {{ current.a_opening }}</td>
+			  <td> {{ current.a_closing }}</td>
+		</tr>
+	</table>
+
+	<h2> HORAIRES : </h2>
+	<table>
+		<tr>
+			<th>JOURS </th>
+			<th>MATIN O/F</th> 
+			<th>MIDI O/F</th> 
+		</tr>
+		<tr *ngFor="let current of horaiResponse" >
+			<td> {{ current.day }} </td>
+
+				<td *ngIf="current.state">  de {{ current.m_opening }}h à {{ current.m_closing }}h </td>
+				<td *ngIf="current.state"> et de {{ current.a_opening }}h à {{ current.a_closing }}h </td>
+				
+				<td *ngIf="!current.state"> Fermé </td>
+				<td *ngIf="!current.state"> Fermé </td>
+			
+		</tr>
+	</table>
+
+	<style>
+		table{
+			width:100%;
+			border-collapse: collapse;
+			margin-bottom: 10em;
+		}
+
+		table, td, th {
+			border: 1px solid black;
+		}
+	</style>
+
+</div>
